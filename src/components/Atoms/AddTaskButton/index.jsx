@@ -7,7 +7,7 @@ import PLUS from "../../../assets/svg/plus.svg";
 
 const AddTaskButton = ({ checked }) => {
   return (
-    <AddTaskButtonBody>
+    <AddTaskButtonBody onClick ={checked}>
       <HoverEffect />
       <PlusButtonImg src={PLUS} />
       <AddText>タスクを追加</AddText>
