@@ -5,9 +5,9 @@ import TEXT from "../../../variables/texts";
 import FONTFAMILY from "../../../variables/font_family";
 import PLUS from "../../../assets/svg/plus.svg";
 
-const AddTaskButton = ({ checked }) => {
+const AddTaskButton = ({ onCheck }) => {
   return (
-    <AddTaskButtonBody onClick ={checked}>
+    <AddTaskButtonBody onClick ={onCheck}>
       <HoverEffect />
       <PlusButtonImg src={PLUS} />
       <AddText>タスクを追加</AddText>
