@@ -3,9 +3,9 @@ import styled from "styled-components";
 import COLOR from "../../../variables/color";
 import CHECK from "../../../assets/svg/check.svg";
 
-const Checkbox = ({checked}) => {
+const Checkbox = ({ onCheck }) => {
   return (
-    <CheckboxBody onClick={checked}>
+    <CheckboxBody onClick={onCheck}>
       <CheckImg src={CHECK} />
     </CheckboxBody>
   );
