@@ -1,11 +1,21 @@
-import React,{ useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import styled from "styled-components";
 import COLOR from "../../../variables/color";
 import TEXT from "../../../variables/texts";
 import FONTFAMILY from "../../../variables/font_family";
 
-const Input = () => {
-  return <StyledInput />;
+const Input = ({ defaultValue = "", onEditComplete }) => {
+  const ref = useRef(null);
+  useEffect(() => {
+    ref.current.focus();
+    ref.current.onBlur = (e) => {
+      onEditComplete(e.target.value);
+    };
+    ref.current.onKeyPress = (e) => {
+      if (e === Enter) onEditComplete(e.target.value);
+    };
+  }, []);
+  return <StyledInput ref={ref} defaultValue={defaultValue} />;
 };
 
 export default Input;
