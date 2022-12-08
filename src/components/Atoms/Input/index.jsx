@@ -9,11 +9,11 @@ const Input = ({ defaultValue = "", onEditComplete }) => {
   useEffect(() => {
     ref.current.value = defaultValue;
     ref.current.focus();
-    ref.current.onBlur = (e) => {
+    ref.current.onblur = (e) => {
       onEditComplete(e.target.value);
     };
-    ref.current.onKeyPress = (e) => {
-      if (e.Key === "Enter") onEditComplete(e.target.value);
+    ref.current.onkeypress = (e) => {
+      if (e.key === "Enter") onEditComplete(e.target.value);
     };
   }, []);
   return <StyledInput ref={ref} />;
