@@ -3,9 +3,9 @@ import styled from "styled-components";
 import COLOR from "../../../variables/color";
 import pencil from "../../../assets/svg/pencil.svg";
 
-const EditButton = ({ checked }) => {
+const EditButton = ({ onClick }) => {
   return (
-    <StyledButton onClick={checked}>
+    <StyledButton onClick={onClick}>
       <HoverCircle />
       <PencilImg src={pencil} />
     </StyledButton>
