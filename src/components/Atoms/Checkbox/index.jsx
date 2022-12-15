@@ -26,6 +26,7 @@ const CheckboxBody = styled.button`
   height: 20px;
   width: 20px;
   border-radius: 2px;
+  margin-right:10px;
   background-color: transparent;
   border: 2px solid ${COLOR.LIGHT_GRAY};
   cursor: pointer;
