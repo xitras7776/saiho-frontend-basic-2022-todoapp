@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import COLOR from "../../../variables/color";
 import TEXT from "../../../variables/texts";
@@ -7,29 +7,29 @@ import StyledButton from "../../../components/Atoms/EditButton";
 import CheckboxBody from "../../../components/Atoms/Checkbox";
 import StyledInput from "../../../components/Atoms/Input";
 
-const Task = () => {
+const Task = ({
+  onEditComplete,
+  onTaskComplete,
+  taskName,
+  defaultIsEditing,
+}) => {
   const [isEditing, setisEditing] = useState(defaultIsEditing);
 
   const onEditState = () => {
     setisEditing(true);
   };
-  const onCompeteTask = () => {
-    setisEditing(false);
-    onTaskComplete();
-  };
-  const onCompleteEdit = () => {
-    setisEditing(false);
-    onEditComplete();
-  };
 
   return (
     <StyledTask>
-      <CheckboxBody onClick={onCompeteTask} />
-      <StyledInput
-        defaultValue={defaultValue}
-        onEditComplete={onCompleteEdit}
-      />
-      <StyledButton onClick={onEditState} />
+      <CheckboxBody onClick={onTaskComplete} />
+      {isEditing ? (
+        <StyledInput defaultValue={taskName} onEditComplete={(value) => {on}} />
+      ) : (
+        <StyledTaskArea>
+          <StyledTaskName>{taskName}</StyledTaskName>
+          <StyledButton onClick={onEditState} />
+        </StyledTaskArea>
+      )}
     </StyledTask>
   );
 };
@@ -37,4 +37,14 @@ export default Task;
 
 const StyledTask = styled.div`
   display: flex;
+`;
+
+const StyledTaskArea = styled.div`
+  display: flex;
+  width: 100%;
+`;
+
+const StyledTaskName = styled.div`
+  ${TEXT.S}
+  color:${COLOR.LIGHT_GRAY}
 `;
