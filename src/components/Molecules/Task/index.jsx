@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import COLOR from "../../../variables/color";
 import TEXT from "../../../variables/texts";
-import FONTFAMILY from "../../../variables/font_family";
 import StyledButton from "../../../components/Atoms/EditButton";
 import CheckboxBody from "../../../components/Atoms/Checkbox";
 import StyledInput from "../../../components/Atoms/Input";
@@ -23,7 +22,13 @@ const Task = ({
     <StyledTask>
       <CheckboxBody onClick={onTaskComplete} />
       {isEditing ? (
-        <StyledInput defaultValue={taskName} onEditComplete={(value) => {on}} />
+        <StyledInput
+          defaultValue={taskName}
+          onTaskChange={(taskName) => {
+            onEditComplete(taskName);
+            setisEditing(false);
+          }}
+        />
       ) : (
         <StyledTaskArea>
           <StyledTaskName>{taskName}</StyledTaskName>
@@ -37,6 +42,7 @@ export default Task;
 
 const StyledTask = styled.div`
   display: flex;
+  padding:2px 6px;
 `;
 
 const StyledTaskArea = styled.div`
