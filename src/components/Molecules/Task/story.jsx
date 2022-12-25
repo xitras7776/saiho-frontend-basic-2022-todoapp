@@ -3,7 +3,7 @@ import Component from "./index";
 
 export default {
   component: Component,
-  title: "Atoms/EditButton",
+  title: "Molecules/Task",
   parameters: {
     backgrounds: {
       default: "dark",
@@ -15,5 +15,8 @@ const Template = (args) => <Component {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  onClick: () => console.log("clicked"),
+  onEditComplete: (taskName) => console.log(`taskname changed ${taskName}`),
+  taskName:"taskname",
+  onTaskComplete:() => console.log("task completed"),
+  defaultIsEditing:false,
 };

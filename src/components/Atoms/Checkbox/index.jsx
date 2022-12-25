@@ -3,9 +3,9 @@ import styled from "styled-components";
 import COLOR from "../../../variables/color";
 import CHECK from "../../../assets/svg/check.svg";
 
-const Checkbox = ({ onCheck }) => {
+const Checkbox = ({ onClick }) => {
   return (
-    <CheckboxBody onClick={onCheck}>
+    <CheckboxBody onClick={onClick}>
       <CheckImg src={CHECK} />
     </CheckboxBody>
   );
@@ -26,6 +26,7 @@ const CheckboxBody = styled.button`
   height: 20px;
   width: 20px;
   border-radius: 2px;
+  margin-right:10px;
   background-color: transparent;
   border: 2px solid ${COLOR.LIGHT_GRAY};
   cursor: pointer;
