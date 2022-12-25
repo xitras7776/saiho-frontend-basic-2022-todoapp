@@ -24,7 +24,7 @@ const Task = ({
       {isEditing ? (
         <StyledInput
           defaultValue={taskName}
-          onTaskChange={(taskName) => {
+          onEditComplete={(taskName) => {
             onEditComplete(taskName);
             setisEditing(false);
           }}
