@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import COLOR from "../../../variables/color";
 import TEXT from "../../../variables/texts";
-import StyledButton from "../../../components/Atoms/EditButton";
-import CheckboxBody from "../../../components/Atoms/Checkbox";
-import StyledInput from "../../../components/Atoms/Input";
+import EditButton from "../../../components/Atoms/EditButton";
+import Checkbox from "../../../components/Atoms/Checkbox";
+import Input from "../../../components/Atoms/Input";
 
 const Task = ({
   onEditComplete,
@@ -20,9 +20,9 @@ const Task = ({
 
   return (
     <StyledTask>
-      <CheckboxBody onClick={onTaskComplete} />
+      <Checkbox onClick={onTaskComplete} />
       {isEditing ? (
-        <StyledInput
+        <Input
           defaultValue={taskName}
           onEditComplete={(taskName) => {
             onEditComplete(taskName);
@@ -32,7 +32,7 @@ const Task = ({
       ) : (
         <StyledTaskArea>
           <StyledTaskName>{taskName}</StyledTaskName>
-          <StyledButton onClick={onEditState} />
+          <EditButton onClick={onEditState} />
         </StyledTaskArea>
       )}
     </StyledTask>
@@ -48,6 +48,7 @@ const StyledTask = styled.div`
 const StyledTaskArea = styled.div`
   display: flex;
   width: 100%;
+  justify-content: space-between;
 `;
 
 const StyledTaskName = styled.div`
