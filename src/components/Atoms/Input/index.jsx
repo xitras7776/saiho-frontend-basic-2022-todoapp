@@ -7,6 +7,9 @@ import FONTFAMILY from "../../../variables/font_family";
 const Input = ({ defaultValue = "", onEditComplete }) => {
   const ref = useRef(null);
   useEffect(() => {
+    if(ref.current === null){
+      return
+    }
     ref.current.value = defaultValue;
     ref.current.focus();
     ref.current.onblur = (e) => {
@@ -14,6 +17,13 @@ const Input = ({ defaultValue = "", onEditComplete }) => {
     };
     ref.current.onkeypress = (e) => {
       if (e.key === "Enter") onEditComplete(e.target.value);
+    };
+    return () => {
+      if(ref.current === null){
+        return
+      }
+      ref.current.onblur = () => {};
+      ref.current.onkeypress = () => {};
     };
   }, []);
   return <StyledInput ref={ref} />;
